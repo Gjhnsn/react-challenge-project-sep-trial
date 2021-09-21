@@ -44,7 +44,6 @@ const loginSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(login.fulfilled, (state, action) => {
-      // state = { ...action.payload };
       state.email = action.payload.email;
       state.token = action.payload.token;
     });
