@@ -12,7 +12,7 @@ const Nav = () => {
 
   const onLogout = () => {
     dispatch(logout());
-    persistor.purge();
+    persistor.purge(); // purging history on logout
     history.push("/login");
   };
 
