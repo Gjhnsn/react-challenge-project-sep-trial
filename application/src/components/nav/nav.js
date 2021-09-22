@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import "./nav.css";
 import { logout } from "../login/loginSlice";
+import { persistor } from "../../redux/store";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const Nav = () => {
 
   const onLogout = () => {
     dispatch(logout());
+    persistor.purge();
     history.push("/login");
   };
 
