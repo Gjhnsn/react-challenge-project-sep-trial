@@ -4,8 +4,6 @@ import { Main, Login, OrderFormHook, ViewOrdersHook } from "../components";
 import { GuardProvider, GuardedRoute } from "react-router-guards";
 import { useSelector } from "react-redux";
 
-// import { PrivateRoute } from "./PrivateRoute";
-
 const requireLogin = (to, from, next) => {
   if (to.meta.auth) {
     if (to.meta?.token === '12345luggage') {
@@ -17,7 +15,7 @@ const requireLogin = (to, from, next) => {
   }
 };
 
-const AppRouter = (props) => {
+const AppRouter = () => {
 
   const token = useSelector((state) => state.login.token);
 
