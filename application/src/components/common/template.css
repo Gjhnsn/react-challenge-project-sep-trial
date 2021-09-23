@@ -1,24 +1,30 @@
 .bg-layer {
-    background: #7A5114;
-    min-height: 100vh;
-    width: 100%;
+  background: #7a5114;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .fg-layer {
-    background: #ECEAEA;
-    min-height: 100vh;
-    margin-left: 20%;
-    margin-right: 20%;
+  background: #eceaea;
+  min-height: 100vh;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .logo {
-    display: block;
-    font-family: "Optima";
-    font-size: 4em;
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 5%;
-    text-align: center;
-    text-decoration: underline;
-    text-decoration-color: #A43F3F;
+  display: block;
+  font-family: "Optima";
+  font-size: 4em;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 5%;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: #a43f3f;
+}
+
+.user {
+  text-align: right;
+  padding: 8px 15px 0 0;
+  font-family: "Optima", serif;
 }
