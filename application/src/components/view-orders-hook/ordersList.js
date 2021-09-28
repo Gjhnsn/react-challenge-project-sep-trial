@@ -1,13 +1,37 @@
 import React from "react";
+import { SERVER_IP } from "../../private";
 
 const OrdersList = (props) => {
-  const { orders } = props;
+  const { orders, setOrders } = props;
   if (!props || !props.orders || !props.orders.length)
     return (
       <div className="empty-orders">
         <h2>There are no orders to display</h2>
       </div>
     );
+
+  const DELETE_ORDER_URL = `${SERVER_IP}/api/delete-order`;
+
+  const deleteOrder = async (order) => {
+    console.log(`order`, order);
+    await fetch(DELETE_ORDER_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        id: order,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((response) => console.log("Success", JSON.stringify(response)))
+      .catch((error) => console.error(error));
+  };
+
+  const removeOrder = (deletedOrder) => {
+    const newOrdersList = orders.filter((order) => order._id !== deletedOrder);
+    setOrders(newOrdersList);
+  };
 
   const orderedTime = (time) => {
     const timeFormat = {
@@ -33,7 +57,15 @@ const OrdersList = (props) => {
         </div>
         <div className="col-md-4 view-order-right-col">
           <button className="btn btn-success">Edit</button>
-          <button className="btn btn-danger">Delete</button>
+          <button
+            onClick={() => {
+              deleteOrder(order._id);
+              removeOrder(order._id);
+            }}
+            className="btn btn-danger"
+          >
+            Delete
+          </button>
         </div>
       </div>
     );
